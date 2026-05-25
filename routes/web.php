@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+
 // Redirect root to login
 Route::get('/', function () {
     return redirect()->route('login');
