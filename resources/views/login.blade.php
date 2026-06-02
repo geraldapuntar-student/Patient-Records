@@ -79,7 +79,7 @@
                 <div class="card shadow mt-4 mb-5">
                     <div class="card-body p-4">
 
-                        {{-- Header --}}
+                        <!-- header -->
                         <div class="icon-header">
                             <i class="bi bi-person-plus-fill"></i>
                         </div>
@@ -87,7 +87,7 @@
                         <p class="text-center text-muted mb-3">Login to your Account</p>
                         <hr>
 
-                        {{-- Validation Errors --}}
+                        <!-- validation -->
                         @if($errors->any())
                             <div class="alert alert-danger alert-dismissible fade show">
                                 <i class="bi bi-exclamation-triangle-fill me-2"></i>
@@ -137,7 +137,7 @@
         </div>
     </div>
 
-    {{-- Toast Notification --}}
+    <!-- toast -->
     @if(session('success'))
     <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
         <div id="successToast" class="toast align-items-center text-white bg-success border-0" role="alert">
@@ -153,7 +153,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
-    {{-- Toast JS --}}
+    <!-- Toast JS -->
     <script>
         var toastEl = document.getElementById('successToast');
         if (toastEl) {

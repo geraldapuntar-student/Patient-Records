@@ -164,7 +164,7 @@
         </div>
     </div>
 
-    {{-- Success Toast --}}
+    <!-- success toast -->
     @if(session('success'))
     <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
         <div id="successToast" class="toast align-items-center text-white bg-success border-0" role="alert">
@@ -178,7 +178,7 @@
     </div>
     @endif
 
-    {{-- Error Toast --}}
+    <!-- error toast -->
     @if($errors->any())
     <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
         <div id="errorToast" class="toast align-items-center text-white bg-danger border-0" role="alert">

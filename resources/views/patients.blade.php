@@ -13,7 +13,7 @@
             padding-top: 60px;
         }
 
-        /* ── Navbar ── */
+        /* navbar */
         .navbar-top {
             background-color: #2980b9;
             height: 60px;
@@ -125,7 +125,6 @@
             color: white;
         }
 
-        /* ── Mobile Drawer ── */
         .nav-drawer {
             display: none;
             position: fixed;
@@ -201,12 +200,11 @@
             background: rgba(255,255,255,0.1);
         }
 
-        /* ── Main content ── */
+        /* main content */
         .main-content {
             padding: 24px;
         }
 
-        /* ── Table card ── */
         .card-table {
             border: 1px solid #dee2e6;
             border-radius: 8px;
@@ -243,13 +241,11 @@
             border: none;
         }
 
-        /* ── Scrollable table wrapper on small screens ── */
         .table-responsive-wrapper {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
         }
 
-        /* ── Empty state ── */
         .empty-state {
             padding: 50px 20px;
             text-align: center;
@@ -288,8 +284,8 @@
             border-top: 1px solid #d0e8f5;
         }
 
-        /* ── Responsive breakpoints ── */
-        @media (max-width: 767.98px) {
+        
+        @media (max-width: 768px) {
             .navbar-top .nav-links,
             .navbar-top .nav-right { display: none; }
 
@@ -306,7 +302,7 @@
             .btn-action-label { display: none; }
         }
 
-        @media (min-width: 768px) and (max-width: 991.98px) {
+        @media (min-width: 769px) and (max-width: 992px) {
             .navbar-top .nav-links a {
                 font-size: 13px;
                 padding: 6px 8px;
@@ -318,7 +314,7 @@
 </head>
 <body>
 
-    {{-- ── Desktop Navbar ── --}}
+    <!-- navbar -->
     <div class="navbar-top">
         <a class="brand" href="{{ route('dashboard') }}">
             <i class="bi bi-heart-pulse-fill" style="font-size: 25px;"></i>
@@ -388,10 +384,10 @@
         </form>
     </div>
 
-    {{-- ── Main Content ── --}}
+   <!-- main content -->
     <div class="main-content">
 
-        {{-- Success Toast --}}
+       <!-- success toast -->
         @if(session('success'))
         <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
             <div id="successToast" class="toast align-items-center text-white bg-success border-0" role="alert">
@@ -403,7 +399,7 @@
         </div>
         @endif
 
-        {{-- Error Toast --}}
+        <!-- error toast -->
         @if($errors->any())
         <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
             <div id="errorToast" class="toast align-items-center text-white bg-danger border-0" role="alert">
@@ -415,7 +411,7 @@
         </div>
         @endif
 
-        {{-- Page Header --}}
+    
         <div class="d-flex justify-content-between align-items-center mb-4 page-header">
             <h5 class="mb-0"><i class="bi bi-file-medical me-2"></i>Patient Records</h5>
             <button class="btn  btn-sm" data-bs-toggle="modal" data-bs-target="#addPatientModal" style="background-color:#2980b9;color:white;">
@@ -425,7 +421,7 @@
             </button>
         </div>
 
-        {{-- Table — horizontally scrollable on mobile --}}
+        <!-- table -->
         <div class="card card-table">
             <div class="card-body p-0">
                 <div class="table-responsive-wrapper">
@@ -491,7 +487,9 @@
             </div>
         </div>
 
-    </div>{{-- /main-content --}}
+    </div>
+
+    <!-- content -->
 
     <div class="modal fade" id="addPatientModal" tabindex="-1" aria-labelledby="addPatientModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-scrollable">
@@ -565,10 +563,10 @@
         </div>
     </div>
 
-    {{-- Per-patient Edit & Delete Modals --}}
+   
     @foreach($patients as $patient)
 
-    {{-- Edit Modal --}}
+    <!-- edit -->
     <div class="modal fade" id="editPatientModal{{ $patient->id }}" tabindex="-1"
          aria-labelledby="editLabel{{ $patient->id }}" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-scrollable">
@@ -641,7 +639,7 @@
         </div>
     </div>
 
-    {{-- Delete Modal --}}
+   <!-- delete modal -->
     <div class="modal fade" id="deleteModal{{ $patient->id }}" tabindex="-1"
          aria-labelledby="deleteLabel{{ $patient->id }}" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -674,14 +672,14 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // ── Toasts
+        // Toasts
         var successToastEl = document.getElementById('successToast');
         if (successToastEl) new bootstrap.Toast(successToastEl, { delay: 3000 }).show();
 
         var errorToastEl = document.getElementById('errorToast');
         if (errorToastEl) new bootstrap.Toast(errorToastEl, { delay: 4000 }).show();
 
-        // ── Mobile nav drawer
+        //  Mobile nav drawer
         const navToggle = document.getElementById('navToggle');
         const navDrawer = document.getElementById('navDrawer');
         const toggleIcon = document.getElementById('toggleIcon');

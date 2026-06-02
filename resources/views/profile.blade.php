@@ -14,7 +14,7 @@
             padding-bottom: 32px;
         }
 
-        /* ── Navbar ── */
+        /*  navbar  */
         .navbar-top {
             background-color: #2980b9;
             height: 60px;
@@ -102,7 +102,7 @@
             white-space: nowrap;
         }
 
-        /* ── Hamburger toggle ── */
+      
         .nav-toggle {
             display: none;
             background: none;
@@ -116,7 +116,7 @@
             line-height: 1;
         }
 
-        /* ── Mobile Drawer ── */
+      
         .nav-drawer {
             display: none;
             position: fixed;
@@ -131,7 +131,9 @@
             gap: 4px;
         }
 
-        .nav-drawer.open { display: flex; }
+        .nav-drawer.open { 
+            display: flex; 
+        }
 
         .nav-drawer a {
             color: rgba(255,255,255,0.85);
@@ -226,7 +228,7 @@
 
 <body>
 
-    {{-- Navbar --}}
+    <!-- nav -->
     <div class="navbar-top">
         <a href="{{ route('dashboard') }}" class="navbar-brand-link me-2">
             <i class="bi bi-heart-pulse-fill" style="font-size: 25px;"></i>
@@ -272,7 +274,7 @@
         </button>
     </div>
 
-    <!-- Mobile Drawer -->
+    
     <div class="nav-drawer" id="navDrawer">
         <a href="{{ route('dashboard') }}">
             <i class="bi bi-speedometer2"></i> Dashboard
@@ -301,7 +303,7 @@
         </form>
     </div>
 
-    {{-- Content --}}
+    <!-- content -->
     <div class="container-fluid px-3 px-md-4 mt-2">
 
         <form method="POST" enctype="multipart/form-data" action="{{ route('profile.update') }}">
@@ -385,7 +387,7 @@
 
     </div>
 
-    {{-- Success Toast --}}
+    <!-- success toast -->
     @if(session('success'))
     <div class="toast-container position-fixed top-0 end-0 p-3">
         <div id="successToast" class="toast align-items-center text-bg-success border-0">
@@ -397,7 +399,7 @@
     </div>
     @endif
 
-    {{-- Error Toast --}}
+   <!-- error toast -->
     @if($errors->any())
     <div class="toast-container position-fixed top-0 end-0 p-3">
         <div id="errorToast" class="toast align-items-center text-bg-danger border-0">

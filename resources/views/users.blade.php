@@ -604,7 +604,7 @@
         var errorToastEl = document.getElementById('errorToast');
         if (errorToastEl) new bootstrap.Toast(errorToastEl, { delay: 4000 }).show();
 
-        // mobile nav drawer
+      
         const navToggle = document.getElementById('navToggle');
         const navDrawer = document.getElementById('navDrawer');
         const toggleIcon = document.getElementById('toggleIcon');
@@ -614,7 +614,7 @@
             toggleIcon.className = isOpen ? 'bi bi-x-lg' : 'bi bi-list';
         });
 
-        // close drawer when a link is clicked
+      
         navDrawer.querySelectorAll('a').forEach(function (link) {
             link.addEventListener('click', function () {
                 navDrawer.classList.remove('open');
