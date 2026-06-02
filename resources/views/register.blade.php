@@ -8,11 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body {
-            background-color: #d6eaf8;
+            background-image: url('{{ asset("images/bg.jpg") }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
             min-height: 100vh;
             font-family: Arial, Helvetica, sans-serif;
-            padding-top: 50px;
-        }
+        }   
 
         .card {
             border-radius: 10px;
@@ -20,10 +22,8 @@
         }
 
         .icon-header {
-            width: 60px;
-            height: 60px;
-            background-color: #d6eaf8;
-            border-radius: 50%;
+            width: 20px;
+            height: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -137,17 +137,15 @@
                                 <label class="form-label">
                                     <i class="bi bi-person-fill me-1"></i> Gender
                                 </label>
-                                <div class="d-flex gap-3">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gender"
-                                            value="Male" {{ old('gender') == 'Male' ? 'checked' : '' }} required>
-                                        <label class="form-check-label">Male</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gender"
-                                            value="Female" {{ old('gender') == 'Female' ? 'checked' : '' }}>
-                                        <label class="form-check-label">Female</label>
-                                    </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender"
+                                        value="male" {{ old('gender') == 'male' ? 'checked' : '' }} required>
+                                    <label class="form-check-label">Male</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gender"
+                                        value="female" {{ old('gender') == 'female' ? 'checked' : '' }}>
+                                    <label class="form-check-label">Female</label>
                                 </div>
                             </div>
 

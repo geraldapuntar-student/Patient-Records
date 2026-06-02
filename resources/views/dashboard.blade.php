@@ -13,7 +13,7 @@
             padding-top: 60px;
         }
 
-        /* ── Navbar ── */
+        /* ── Top Navbar ── */
         .navbar-top {
             background-color: #2980b9;
             height: 60px;
@@ -24,7 +24,7 @@
             z-index: 1000;
             display: flex;
             align-items: center;
-            padding: 0 24px;
+            padding: 0 16px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
@@ -33,13 +33,27 @@
             align-items: center;
             gap: 8px;
             color: white;
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 700;
             text-decoration: none;
-            margin-right: 28px;
             white-space: nowrap;
         }
 
+        /* Hamburger toggle */
+        .navbar-top .nav-toggle {
+            display: none;
+            background: none;
+            border: 1px solid rgba(255,255,255,0.35);
+            color: white;
+            font-size: 18px;
+            padding: 4px 9px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-left: auto;
+            line-height: 1;
+        }
+
+        /* Nav links – desktop */
         .navbar-top .nav-links {
             display: flex;
             align-items: center;
@@ -52,12 +66,13 @@
             color: rgba(255,255,255,0.75);
             text-decoration: none;
             font-size: 14px;
-            padding: 6px 13px;
+            padding: 6px 12px;
             border-radius: 6px;
             transition: all 0.15s;
             display: flex;
             align-items: center;
             gap: 6px;
+            white-space: nowrap;
         }
 
         .navbar-top .nav-links a:hover,
@@ -66,6 +81,7 @@
             color: white;
         }
 
+        /* Right section – desktop */
         .navbar-top .nav-right {
             margin-left: auto;
             display: flex;
@@ -79,6 +95,16 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            white-space: nowrap;
+            text-decoration: none;
+            padding: 5px 8px;
+            border-radius: 6px;
+            transition: all 0.15s;
+        }
+
+        .navbar-top .nav-user:hover {
+            background: rgba(255,255,255,0.12);
+            color: white;
         }
 
         .navbar-top .btn-logout {
@@ -86,7 +112,7 @@
             border: 1px solid rgba(255,255,255,0.3);
             color: rgba(255,255,255,0.8);
             font-size: 13px;
-            padding: 5px 13px;
+            padding: 5px 12px;
             border-radius: 6px;
             cursor: pointer;
             font-family: Arial, Helvetica, sans-serif;
@@ -94,6 +120,7 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            white-space: nowrap;
         }
 
         .navbar-top .btn-logout:hover {
@@ -101,12 +128,91 @@
             color: white;
         }
 
-        /* ── Main Content ── */
-        .main-content {
-            padding: 30px;
+        /* ── Mobile drawer ── */
+        .nav-drawer {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: #1a6fa0;
+            z-index: 999;
+            padding: 10px 16px 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            flex-direction: column;
+            gap: 4px;
         }
 
-        /* ── Stat Cards ── */
+        .nav-drawer.open {
+            display: flex;
+        }
+
+        .nav-drawer a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 9px 12px;
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.15s;
+        }
+
+        .nav-drawer a:hover,
+        .nav-drawer a.active {
+            background: rgba(255,255,255,0.15);
+            color: white;
+        }
+
+        .nav-drawer .drawer-divider {
+            border-top: 1px solid rgba(255,255,255,0.15);
+            margin: 6px 0;
+        }
+
+        .nav-drawer .drawer-user {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.75);
+            font-size: 13px;
+            padding: 8px 12px 4px;
+            text-decoration: none;
+            border-radius: 7px;
+            transition: background 0.15s;
+        }
+
+        .nav-drawer .drawer-user:hover {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+        .nav-drawer .drawer-logout {
+            background: none;
+            border: 1px solid rgba(255,255,255,0.25);
+            color: rgba(255,255,255,0.8);
+            font-size: 13px;
+            padding: 8px 12px;
+            border-radius: 7px;
+            cursor: pointer;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            transition: background 0.15s;
+        }
+
+        .nav-drawer .drawer-logout:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        /* ── Main content ── */
+        .main-content {
+            padding: 24px;
+        }
+
+        /* ── Stat cards ── */
         .card-stat {
             border: none;
             border-radius: 10px;
@@ -115,8 +221,9 @@
         }
 
         .card-stat .icon {
-            width: 50px;
-            height: 50px;
+            width: 46px;
+            height: 46px;
+            min-width: 46px;
             background-color: #d6eaf8;
             border-radius: 50%;
             display: flex;
@@ -125,58 +232,103 @@
         }
 
         .card-stat .icon i {
-            font-size: 22px;
+            font-size: 20px;
             color: #2980b9;
         }
 
         .card-stat .label {
-            font-size: 14px;
+            font-size: 12px;
         }
 
         .card-stat .value {
-            font-size: 29px;
+            font-size: 26px;
             font-weight: 700;
             color: #2980b9;
+            line-height: 1.2;
         }
 
-        /* ── Chart Card ── */
+        /* ── Chart card ── */
         .chart-card {
             border: none;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
-        .toast { font-size: 14px; }
+        /* ── Responsive breakpoints ── */
+        @media (max-width: 767.98px) {
+            body {
+                padding-top: 60px;
+            }
+
+            /* Hide desktop nav, show toggle */
+            .navbar-top .nav-links,
+            .navbar-top .nav-right {
+                display: none;
+            }
+
+            .navbar-top .nav-toggle {
+                display: block;
+            }
+
+            .main-content {
+                padding: 16px 12px;
+            }
+
+            .card-stat .value {
+                font-size: 22px;
+            }
+
+            .card-stat .label {
+                font-size: 11px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .navbar-top .nav-links a {
+                font-size: 13px;
+                padding: 6px 8px;
+            }
+
+            .navbar-top .nav-user span.name-text {
+                display: none;
+            }
+
+            .main-content {
+                padding: 20px 16px;
+            }
+        }
     </style>
 </head>
 <body>
-
-    {{-- Navbar --}}
+<!-- nav -->
     <div class="navbar-top">
         <a class="brand" href="{{ route('dashboard') }}">
-            <i class="bi bi-heart-pulse-fill"></i> Patient Records
+            <i class="bi bi-heart-pulse-fill" style="font-size: 25px;"></i>
+            <span>CareCloud</span>
         </a>
 
         <div class="nav-links">
             <a href="{{ route('dashboard') }}" class="active">
                 <i class="bi bi-speedometer2"></i> Dashboard
             </a>
-            <a href="#">
-                <i class="bi bi-people"></i> Users
-            </a>
-            <a href="#">
+            <a href="{{ route('patients.index') }}">
                 <i class="bi bi-file-medical"></i> Patients
             </a>
-            <a href="#">
+            <a href="{{ route('users.index') }}">
+                <i class="bi bi-people"></i> Users
+            </a>
+            <a href="{{ route('profile.index') }}">
                 <i class="bi bi-person-circle"></i> Profile
             </a>
         </div>
 
         <div class="nav-right">
-            <span class="nav-user">
-                <i class="bi bi-person-circle"></i>
-                {{ Auth::user()->name }}
-            </span>
+            <a href="{{ route('profile.index') }}" class="nav-user">
+                <img src="{{ Auth::user()->profile_picture ? asset('storage/' . Auth::user()->profile_picture) : asset('images/default.jpg') }}"
+                    alt="Profile"
+                    style="width:30px; height:30px; border-radius:50%; object-fit:cover; border: 2px solid rgba(255,255,255,0.5);">
+                <span class="name-text">{{ Auth::user()->name }}</span>
+            </a>
             <form action="{{ route('logout') }}" method="POST" style="margin:0;">
                 @csrf
                 <button type="submit" class="btn-logout">
@@ -184,12 +336,46 @@
                 </button>
             </form>
         </div>
+
+        <!-- Mobile hamburger -->
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <i class="bi bi-list" id="toggleIcon"></i>
+        </button>
     </div>
 
-    {{-- Main Content --}}
+    <!-- ── Mobile Drawer ── -->
+    <div class="nav-drawer" id="navDrawer">
+        <a href="{{ route('dashboard') }}" class="active">
+            <i class="bi bi-speedometer2"></i> Dashboard
+        </a>
+        <a href="{{ route('patients.index') }}">
+            <i class="bi bi-file-medical"></i> Patients
+        </a>
+        <a href="{{ route('users.index') }}">
+            <i class="bi bi-people"></i> Users
+        </a>
+        <a href="{{ route('profile.index') }}">
+            <i class="bi bi-person-circle"></i> Profile
+        </a>
+        <div class="drawer-divider"></div>
+        <a href="{{ route('profile.index') }}" class="drawer-user">
+            <img src="{{ Auth::user()->profile_picture ? asset('storage/' . Auth::user()->profile_picture) : asset('images/default.jpg') }}"
+                alt="Profile"
+                style="width:28px; height:28px; border-radius:50%; object-fit:cover; border: 2px solid rgba(255,255,255,0.4);">
+            {{ Auth::user()->name }}
+        </a>
+        <form action="{{ route('logout') }}" method="POST" style="margin:0;">
+            @csrf
+            <button type="submit" class="drawer-logout">
+                <i class="bi bi-box-arrow-right"></i> Logout
+            </button>
+        </form>
+    </div>
+
+    <!-- ── Main Content ── -->
     <div class="main-content">
 
-        {{-- Success Toast --}}
+        <!-- Success Toast -->
         @if(session('success'))
         <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
             <div id="successToast" class="toast align-items-center text-white bg-success border-0" role="alert">
@@ -201,9 +387,14 @@
         </div>
         @endif
 
-        {{-- Stat Cards --}}
-        <div class="row mb-4">
-            <div class="col-md-3">
+        <!-- Page Title -->
+        <h5 class="mb-4"><i class="bi bi-speedometer2 me-2"></i>Dashboard</h5>
+
+        <!-- Stat Cards -->
+        <div class="row mb-4 g-3">
+
+            <!-- Total Users -->
+            <div class="col-6 col-md-3">
                 <div class="card card-stat p-3">
                     <div class="d-flex align-items-center gap-3">
                         <div class="icon"><i class="bi bi-people"></i></div>
@@ -214,51 +405,73 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+
+            <!-- Total Patients -->
+            <div class="col-6 col-md-3">
                 <div class="card card-stat p-3" style="border-left-color: #2ecc71;">
                     <div class="d-flex align-items-center gap-3">
-                        <div class="icon" style="background-color: #d5f5e3;">
-                            <i class="bi bi-file-medical" style="color: #27ae60;"></i>
+                        <div class="icon" style="background-color:#d5f5e3;">
+                            <i class="bi bi-file-medical" style="color:#27ae60;"></i>
                         </div>
                         <div>
                             <div class="text-muted label">Total Patients</div>
-                            <div class="value" style="color: #27ae60;">{{ $totalPatients }}</div>
+                            <div class="value" style="color:#27ae60;">{{ $totalPatients }}</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
+
+            <!-- Active Patients -->
+            <div class="col-6 col-md-3">
                 <div class="card card-stat p-3" style="border-left-color: #f39c12;">
                     <div class="d-flex align-items-center gap-3">
-                        <div class="icon" style="background-color: #fef9e7;">
-                            <i class="bi bi-clipboard2-pulse" style="color: #f39c12;"></i>
+                        <div class="icon" style="background-color:#fef9e7;">
+                            <i class="bi bi-clipboard2-pulse" style="color:#f39c12;"></i>
                         </div>
                         <div>
-                            <div class="text-muted label">Active Records</div>
-                            <div class="value" style="color: #f39c12;">{{ $activeRecords ?? 0 }}</div>
+                            <div class="text-muted label">Active Patients</div>
+                            <div class="value" style="color:#f39c12;">{{ $activePatients }}</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card card-stat p-3" style="border-left-color: #e74c3c;">
+
+            <!-- Discharged -->
+            <div class="col-6 col-md-3">
+                <div class="card card-stat p-3" style="border-left-color: #e57373;">
                     <div class="d-flex align-items-center gap-3">
-                        <div class="icon" style="background-color: #fadbd8;">
-                            <i class="bi bi-calendar-check" style="color: #e74c3c;"></i>
+                        <div class="icon" style="background-color:#fdecea;">
+                            <i class="bi bi-clipboard-check" style="color:#e57373;"></i>
                         </div>
                         <div>
-                            <div class="text-muted label">Today's Visits</div>
-                            <div class="value" style="color: #e74c3c;">{{ $todayVisits ?? 0 }}</div>
+                            <div class="text-muted label">Discharged</div>
+                            <div class="value" style="color:#e57373;">{{ $dischargedPatients }}</div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
 
-        {{-- Chart --}}
-        <div class="card chart-card p-4">
-            <h6 class="mb-3">Overview</h6>
-            <canvas id="myChart" height="100"></canvas>
+        <!-- Charts Row -->
+        <div class="row g-3">
+
+            <!-- Bar Chart -->
+            <div class="col-12 col-md-8">
+                <div class="card chart-card p-4">
+                    <h6 class="mb-3"><i class="bi bi-bar-chart me-2"></i>Patient Overview</h6>
+                    <canvas id="patientChart" height="120"></canvas>
+                </div>
+            </div>
+
+            <!-- Doughnut Chart -->
+            <div class="col-12 col-md-4">
+                <div class="card chart-card p-4">
+                    <h6 class="mb-3"><i class="bi bi-file-medical me-2"></i>Patient Status</h6>
+                    <canvas id="statusChart" height="180"></canvas>
+                </div>
+            </div>
+
         </div>
 
     </div>
@@ -266,42 +479,62 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <script>
+        // ── Toast
         var toastEl = document.getElementById('successToast');
         if (toastEl) {
-            var toast = new bootstrap.Toast(toastEl, { delay: 3000 });
-            toast.show();
+            new bootstrap.Toast(toastEl, { delay: 3000 }).show();
         }
 
-        const ctx = document.getElementById('myChart').getContext('2d');
-        new Chart(ctx, {
+        // ── Mobile nav drawer toggle
+        const navToggle = document.getElementById('navToggle');
+        const navDrawer = document.getElementById('navDrawer');
+        const toggleIcon = document.getElementById('toggleIcon');
+
+        navToggle.addEventListener('click', function () {
+            const isOpen = navDrawer.classList.toggle('open');
+            toggleIcon.className = isOpen ? 'bi bi-x-lg' : 'bi bi-list';
+        });
+
+        // Close drawer when a link is clicked
+        navDrawer.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                navDrawer.classList.remove('open');
+                toggleIcon.className = 'bi bi-list';
+            });
+        });
+
+        // ── Bar Chart
+        new Chart(document.getElementById('patientChart'), {
             type: 'bar',
             data: {
-                labels: ['Users', 'Patients', 'Active Records', "Today's Visits"],
+                labels: ['Total Patients', 'Active', 'Discharged'],
                 datasets: [{
-                    label: 'Total Count',
-                    data: [
-                        {{ $totalUsers }},
-                        {{ $totalPatients }},
-                        {{ $activeRecords ?? 0 }},
-                        {{ $todayVisits ?? 0 }}
-                    ],
-                    backgroundColor: [
-                        '#3498db',
-                        '#2ecc71',
-                        '#f39c12',
-                        '#e74c3c'
-                    ],
+                    label: 'Count',
+                    data: [{{ $totalPatients }}, {{ $activePatients }}, {{ $dischargedPatients }}],
+                    backgroundColor: ['#3498db', '#2ecc71', '#e57373'],
                     borderRadius: 6,
                 }]
             },
             options: {
                 responsive: true,
-                plugins: {
-                    legend: { display: false }
-                },
-                scales: {
-                    y: { beginAtZero: true }
-                }
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } }
+            }
+        });
+
+        // ── Doughnut Chart
+        new Chart(document.getElementById('statusChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Active', 'Discharged', 'Critical'],
+                datasets: [{
+                    data: [{{ $activePatients }}, {{ $dischargedPatients }}, {{ $criticalPatients }}],
+                    backgroundColor: ['#2ecc71', '#e57373', '#e74c3c'],
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'bottom' } }
             }
         });
     </script>

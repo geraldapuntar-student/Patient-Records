@@ -8,7 +8,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body {
-            background-color: #d6eaf8;
+            background-image: url('{{ asset("images/bg.jpg") }}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
             min-height: 100vh;
             font-family: Arial, Helvetica, sans-serif;
             padding-top: 50px;
