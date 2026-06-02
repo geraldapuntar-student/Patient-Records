@@ -13,7 +13,6 @@
             padding-top: 60px;
         }
 
-        /* ── Top Navbar ── */
         .navbar-top {
             background-color: #2980b9;
             height: 60px;
@@ -39,7 +38,6 @@
             white-space: nowrap;
         }
 
-        /* Hamburger toggle */
         .navbar-top .nav-toggle {
             display: none;
             background: none;
@@ -53,7 +51,6 @@
             line-height: 1;
         }
 
-        /* Nav links – desktop */
         .navbar-top .nav-links {
             display: flex;
             align-items: center;
@@ -81,7 +78,6 @@
             color: white;
         }
 
-        /* Right section – desktop */
         .navbar-top .nav-right {
             margin-left: auto;
             display: flex;
@@ -128,7 +124,6 @@
             color: white;
         }
 
-        /* ── Mobile drawer ── */
         .nav-drawer {
             display: none;
             position: fixed;
@@ -207,12 +202,10 @@
             background: rgba(255,255,255,0.1);
         }
 
-        /* ── Main content ── */
         .main-content {
             padding: 24px;
         }
 
-        /* ── Stat cards ── */
         .card-stat {
             border: none;
             border-radius: 10px;
@@ -247,7 +240,6 @@
             line-height: 1.2;
         }
 
-        /* ── Chart card ── */
         .chart-card {
             border: none;
             border-radius: 10px;
@@ -255,7 +247,7 @@
         }
 
         /* ── Responsive breakpoints ── */
-        @media (max-width: 767.98px) {
+        @media (max-width: 768px) {
             body {
                 padding-top: 60px;
             }
@@ -283,7 +275,7 @@
             }
         }
 
-        @media (min-width: 768px) and (max-width: 991.98px) {
+        @media (min-width: 769px) and (max-width: 992px) {
             .navbar-top .nav-links a {
                 font-size: 13px;
                 padding: 6px 8px;
@@ -342,8 +334,7 @@
             <i class="bi bi-list" id="toggleIcon"></i>
         </button>
     </div>
-
-    <!-- ── Mobile Drawer ── -->
+ 
     <div class="nav-drawer" id="navDrawer">
         <a href="{{ route('dashboard') }}" class="active">
             <i class="bi bi-speedometer2"></i> Dashboard
@@ -372,7 +363,7 @@
         </form>
     </div>
 
-    <!-- ── Main Content ── -->
+    <!--  Main Content  -->
     <div class="main-content">
 
         <!-- Success Toast -->
@@ -479,13 +470,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <script>
-        // ── Toast
+        // toast
         var toastEl = document.getElementById('successToast');
         if (toastEl) {
             new bootstrap.Toast(toastEl, { delay: 3000 }).show();
         }
 
-        // ── Mobile nav drawer toggle
+        // Mobile nav drawer toggle
         const navToggle = document.getElementById('navToggle');
         const navDrawer = document.getElementById('navDrawer');
         const toggleIcon = document.getElementById('toggleIcon');
@@ -495,7 +486,7 @@
             toggleIcon.className = isOpen ? 'bi bi-x-lg' : 'bi bi-list';
         });
 
-        // Close drawer when a link is clicked
+       
         navDrawer.querySelectorAll('a').forEach(function (link) {
             link.addEventListener('click', function () {
                 navDrawer.classList.remove('open');
@@ -503,7 +494,7 @@
             });
         });
 
-        // ── Bar Chart
+        //  Bar Chart
         new Chart(document.getElementById('patientChart'), {
             type: 'bar',
             data: {
@@ -522,7 +513,7 @@
             }
         });
 
-        // ── Doughnut Chart
+        // Doughnut Chart
         new Chart(document.getElementById('statusChart'), {
             type: 'doughnut',
             data: {
