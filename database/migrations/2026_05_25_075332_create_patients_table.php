@@ -12,16 +12,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('patient_name');
-            $table->string('patient_no')->unique();
-            $table->date('date_of_birth');
+            $table->integer('age');
             $table->string('gender');
-            $table->string('contact_number');
-            $table->string('address');
             $table->string('diagnosis');
             $table->string('doctor_assigned');
             $table->enum('status', ['Active', 'Discharged', 'Critical'])->default('Active');
             $table->date('admission_date');
-            $table->date('discharge_date')->nullable();
             $table->text('notes')->nullable();
             $table->timestamps();
         });
