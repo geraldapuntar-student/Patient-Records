@@ -102,7 +102,6 @@
             white-space: nowrap;
         }
 
-      
         .nav-toggle {
             display: none;
             background: none;
@@ -116,7 +115,6 @@
             line-height: 1;
         }
 
-      
         .nav-drawer {
             display: none;
             position: fixed;
@@ -131,8 +129,8 @@
             gap: 4px;
         }
 
-        .nav-drawer.open { 
-            display: flex; 
+        .nav-drawer.open {
+            display: flex;
         }
 
         .nav-drawer a {
@@ -228,7 +226,7 @@
 
 <body>
 
-    <!-- nav -->
+    <!-- navbar -->
     <div class="navbar-top">
         <a href="{{ route('dashboard') }}" class="navbar-brand-link me-2">
             <i class="bi bi-heart-pulse-fill" style="font-size: 25px;"></i>
@@ -256,7 +254,8 @@
 
         <div class="navbar-right">
             <a href="{{ route('profile.index') }}" class="navbar-user" style="text-decoration:none;">
-                <img src="{{ Auth::user()->profile_picture ? asset('storage/' . Auth::user()->profile_picture) : asset('images/default.jpg') }}"
+                {{-- UPDATED: navbar avatar --}}
+                <img src="{{ Auth::user()->profile_picture ? asset('uploads/' . Auth::user()->profile_picture) : asset('images/default.jpg') }}"
                     class="navbar-avatar" alt="avatar">
                 <span class="user-name">{{ Auth::user()->name }}</span>
             </a>
@@ -274,7 +273,7 @@
         </button>
     </div>
 
-    
+    <!-- mobile drawer -->
     <div class="nav-drawer" id="navDrawer">
         <a href="{{ route('dashboard') }}">
             <i class="bi bi-speedometer2"></i> Dashboard
@@ -290,7 +289,8 @@
         </a>
         <div class="drawer-divider"></div>
         <div class="drawer-user">
-            <img src="{{ Auth::user()->profile_picture ? asset('storage/' . Auth::user()->profile_picture) : asset('images/default.jpg') }}"
+            {{-- UPDATED: drawer avatar --}}
+            <img src="{{ Auth::user()->profile_picture ? asset('uploads/' . Auth::user()->profile_picture) : asset('images/default.jpg') }}"
                 alt="Profile"
                 style="width:28px; height:28px; border-radius:50%; object-fit:cover; border: 2px solid rgba(255,255,255,0.4);">
             {{ Auth::user()->name }}
@@ -311,11 +311,12 @@
             @method('PUT')
             <div class="row g-3">
 
-                {{-- Profile Picture --}}
+                {{-- Profile Picture Card --}}
                 <div class="col-12 col-md-3">
                     <div class="card profile-card h-auto">
                         <div class="card-body text-center">
-                            <img src="{{ Auth::user()->profile_picture ? asset('storage/' . Auth::user()->profile_picture) : asset('images/default.jpg') }}"
+                            {{-- UPDATED: profile card avatar --}}
+                            <img src="{{ Auth::user()->profile_picture ? asset('uploads/' . Auth::user()->profile_picture) : asset('images/default.jpg') }}"
                                 class="profile-avatar mb-2"
                                 alt="Profile Picture">
                         </div>
@@ -323,7 +324,7 @@
                             <input type="file" name="profile_picture" class="form-control form-control-sm" id="inputGroupFile01" accept="image/*">
                         </div>
                         <div class="px-3 mb-3">
-                            <button class="btn  w-100" name="upload_pic" style="border-radius:10px;background-color:#2980b9;color:white;">
+                            <button class="btn w-100" name="upload_pic" style="border-radius:10px;background-color:#2980b9;color:white;">
                                 <i class="bi bi-camera me-1"></i> Change Photo
                             </button>
                         </div>
@@ -336,7 +337,6 @@
                             <h4 class="mb-1">User Profile</h4>
                             <hr>
 
-                            {{-- Name + Email + Gender --}}
                             <div class="row g-3 mb-2">
                                 <div class="col-12 col-sm-4">
                                     <label class="form-label fw-bold small text-muted">Full Name</label>
@@ -399,7 +399,7 @@
     </div>
     @endif
 
-   <!-- error toast -->
+    <!-- error toast -->
     @if($errors->any())
     <div class="toast-container position-fixed top-0 end-0 p-3">
         <div id="errorToast" class="toast align-items-center text-bg-danger border-0">

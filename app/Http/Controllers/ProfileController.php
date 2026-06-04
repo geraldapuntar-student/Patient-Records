@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -18,28 +17,32 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
 
-        // If photo upload button
+        // If photo upload
         if ($request->hasFile('profile_picture')) {
             $request->validate([
                 'profile_picture' => 'image|mimes:jpg,jpeg,png|max:2048',
             ]);
 
-            if ($user->profile_picture) {
-                Storage::disk('public')->delete($user->profile_picture);
+            // Delete old pic if not default
+            if ($user->profile_picture && file_exists(public_path('uploads/' . $user->profile_picture))) {
+                unlink(public_path('uploads/' . $user->profile_picture));
             }
 
-            $path = $request->file('profile_picture')->store('profile_pictures', 'public');
-            $user->profile_picture = $path;
+            $file = $request->file('profile_picture');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('uploads'), $filename);
+
+            $user->profile_picture = $filename;
             $user->save();
 
             return redirect()->route('profile.index')->with('success', 'Profile picture updated successfully.');
         }
 
-        // If save changes button
+        // If save changes
         $request->validate([
             'name'   => 'required|string|max:255',
             'email'  => 'required|email|unique:users,email,' . $user->id,
-            'gender' => 'nullable|in:male,female,other,prefer_not_to_say',
+            'gender' => 'nullable|in:male,female',
         ]);
 
         $user->name   = $request->name;
