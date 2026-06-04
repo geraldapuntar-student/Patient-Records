@@ -337,11 +337,11 @@
         </div>
 
         <div class="nav-right">
-            <a href="{{ route('profile.index') }}" class="nav-user">
-                <img src="{{ Auth::user()->profile_picture ? asset('storage/' . Auth::user()->profile_picture) : asset('images/default.jpg') }}"
-                    alt="Profile"
-                    style="width:30px; height:30px; border-radius:50%; object-fit:cover; border: 2px solid rgba(255,255,255,0.5);">
-                {{ Auth::user()->name }}
+             <a href="{{ route('profile.index') }}" class="navbar-user" style="text-decoration:none;">
+             
+                <img src="{{ Auth::user()->profile_picture ? asset('uploads/' . Auth::user()->profile_picture) : asset('images/default.jpg') }}"
+                    class="navbar-avatar" alt="avatar">
+                <span class="user-name">{{ Auth::user()->name }}</span>
             </a>
             <form action="{{ route('logout') }}" method="POST" style="margin:0;">
                 @csrf

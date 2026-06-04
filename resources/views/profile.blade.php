@@ -254,7 +254,7 @@
 
         <div class="navbar-right">
             <a href="{{ route('profile.index') }}" class="navbar-user" style="text-decoration:none;">
-                {{-- UPDATED: navbar avatar --}}
+             
                 <img src="{{ Auth::user()->profile_picture ? asset('uploads/' . Auth::user()->profile_picture) : asset('images/default.jpg') }}"
                     class="navbar-avatar" alt="avatar">
                 <span class="user-name">{{ Auth::user()->name }}</span>
