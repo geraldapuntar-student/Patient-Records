@@ -28,7 +28,8 @@ class PatientController extends Controller
             'notes'           => 'nullable|string',
         ]);
 
-        $lastPatient = Patient::latest('id')->first();
+       
+        $lastPatient = Patient::where('user_id', Auth::id())->latest('id')->first();
         $nextNo = $lastPatient ? ($lastPatient->patient_no + 1) : 1;
 
         Patient::create([

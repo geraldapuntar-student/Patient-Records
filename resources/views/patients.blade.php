@@ -442,7 +442,7 @@
                         <tbody>
                             @forelse($patients as $index => $patient)
                             <tr>
-                                <td>{{ $patient->patient_no }}</td>
+                               <td>{{ $loop->iteration }}</td>
                                 <td style="white-space:nowrap;">{{ $patient->patient_name }}</td>
                                 <td>{{ $patient->age }}</td>
                                 <td>{{ $patient->gender }}</td>
