@@ -259,7 +259,7 @@
             margin-bottom: 8px;
         }
 
-        /* ── Modal styling ── */
+       
         .modal-header {
             background-color: #2980b9;
             color: #fff;

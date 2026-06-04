@@ -289,11 +289,11 @@
         </a>
         <div class="drawer-divider"></div>
         <div class="drawer-user">
-            {{-- UPDATED: drawer avatar --}}
+            
             <img src="{{ Auth::user()->profile_picture ? asset('uploads/' . Auth::user()->profile_picture) : asset('images/default.jpg') }}"
                 alt="Profile"
                 style="width:28px; height:28px; border-radius:50%; object-fit:cover; border: 2px solid rgba(255,255,255,0.4);">
-            {{ Auth::user()->name }}
+            
         </div>
         <form action="{{ route('logout') }}" method="POST" style="margin:0;">
             @csrf

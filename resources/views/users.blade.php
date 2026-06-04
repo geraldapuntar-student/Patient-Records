@@ -83,7 +83,7 @@
             gap: 12px;
         }
 
-        /* ── Clickable nav-user (matches dashboard) ── */
+        
         .navbar-top .nav-user {
             color: rgba(255,255,255,0.85);
             font-size: 14px;
@@ -123,7 +123,7 @@
             color: white;
         }
 
-        /* ── Mobile drawer ── */
+        
         .nav-drawer {
             display: none;
             position: fixed;
@@ -162,7 +162,7 @@
             margin: 6px 0;
         }
 
-        /* ── Clickable drawer-user (matches dashboard) ── */
+       
         .nav-drawer .drawer-user {
             display: flex;
             align-items: center;
@@ -255,10 +255,7 @@
             font-weight: 600;
         }
 
-        .modal-header .btn-close {
-            filter: brightness(0) invert(1);
-            opacity: 0.8;
-        }
+       
 
         .modal-header .btn-close:hover { opacity: 1; }
 
