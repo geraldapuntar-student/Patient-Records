@@ -34,7 +34,6 @@ class PatientController extends Controller
 
         Patient::create([
             'user_id'         => Auth::id(),
-            'patient_no'      => $nextNo,
             'patient_name'    => $request->patient_name,
             'age'             => $request->age,
             'gender'          => $request->gender,
