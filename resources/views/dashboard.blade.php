@@ -520,7 +520,7 @@
                 labels: ['Active', 'Discharged', 'Critical'],
                 datasets: [{
                     data: [{{ $activePatients }}, {{ $dischargedPatients }}, {{ $criticalPatients }}],
-                    backgroundColor: ['#2ecc71', '#e57373', '#e74c3c'],
+                    backgroundColor: ['#e7f368', '#2ecc71', '#8a0e00'],
                 }]
             },
             options: {
