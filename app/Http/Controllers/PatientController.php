@@ -8,14 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class PatientController extends Controller
 {
-    // Show Patients Page
+    
     public function index()
     {
         $patients = Patient::where('user_id', Auth::id())->latest()->get();
         return view('patients', compact('patients'));
     }
 
-    // Store New Patient
     public function store(Request $request)
     {
         $request->validate([
@@ -29,8 +28,12 @@ class PatientController extends Controller
             'notes'           => 'nullable|string',
         ]);
 
+        $lastPatient = Patient::latest('id')->first();
+        $nextNo = $lastPatient ? ($lastPatient->patient_no + 1) : 1;
+
         Patient::create([
             'user_id'         => Auth::id(),
+            'patient_no'      => $nextNo,
             'patient_name'    => $request->patient_name,
             'age'             => $request->age,
             'gender'          => $request->gender,
